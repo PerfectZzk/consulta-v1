@@ -34,68 +34,6 @@ def ip():
         res3=requests.get(url3);req3=res3.json()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
         br3='\n{}[+] CONSULTA REALIZADA PELO SCRIPT DE CONSULTA-V1 \n[+] by: D.security{}\n{}-=[ip_address]:{}\n-=[country]:{}\n-=[country code]:{}\n-=[continent]:{}\n-=[continente codigo]:{}\n-=[city]:{}\n-=[condado]:{}\n-=[região]:{}\n-=[código da região]:{}\n-=[fuso horário]:{}\n-=[proprietário]:{}\n-=[longitude]:{}\n-=[latitude]:{}\n-=[moeda]:{}\n-=[línguas]:{}\n{}'.format(ng,f,vd,req3['ip_address'],req3['country'],req3['country_code'],req3['continent'],req3['continent_code'],req3['city'],req3['county'],req3['region'],req3['region_code'],req3['timezone'],req3['owner'],req3['longitude'],req3['latitude'],req3['currency'],req3['languages'],f)
         print(br3)
-def cpf():
-  print("\n" + code_info + "CPF.")
-  print(f'''
-{C}[{G}i{C}] Formas de operação:
-
-[{G}1{C}] Consultar CPF.
-[{G}2{C}] Voltar.
-[{G}3{C}] {R}Sair.{C}
-''')
-tool=input(f'{C}[{G}+{C}] Selecione a forma de operação:{B} ')
-  if tool == '1':
-    cpf=input(f'{C}[{G}*{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
-    consultar(cpf)
-  elif tool=='2':
-  elif tool=='2':
-    clear()
-    import consultav1
-    consultav1.main()
-  elif tool=='3':
-    clear()
-    print(f'\n{G}Somos uma comunidade.{C}\n')
-    exit()
-  else:
-    clear()
-    print(f'{C}[{R}-{C}] Seleção inválida.')
-    time.sleep(0.2)
-    main()
-def consultar(cpf):
-  try:
-    h={
-    'Content-Type': "text/xml, application/x-www-form-urlencoded;charset=ISO-8859-1, text/xml; charset=ISO-8859-1",
-    'Cookie': "ASPSESSIONIDSCCRRTSA=NGOIJMMDEIMAPDACNIEDFBID; FGTServer=2A56DE837DA99704910F47A454B42D1A8CCF150E0874FDE491A399A5EF5657BC0CF03A1EEB1C685B4C118A83F971F6198A78",
-    'Host': "www.juventudeweb.mte.gov.br"
-    }
-    r=requests.post(a, headers=h, data=f'acao=consultar%20cpf&cpf={cpf}&nocache=0.7636039437638835').text
-    clear()
-    print(f'''
-{C}CPF: {B}{re.search('NRCPF="(.*?)"', r).group(1)}
-{C}Nome: {B}{re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
-{C}Nascimento: {B}{re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
-{C}Nome da Mae: {B}{re.search('NOMAE="(.*?)"', r).group(1).title()}
-{C}Endereco: {B}{re.search('NOLOGRADOURO="(.*?)"', r).group(1).title()}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
-{C}Complemento: {B}{re.search('DSCOMPLEMENTO="(.*?)"', r).group(1).title()}
-{C}Bairro: {B}{re.search('NOBAIRRO="(.*?)"', r).group(1).title()}
-{C}Cidade: {B}{re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
-{C}CEP: {B}{re.search('NRCEP="(.*?)"', r).group(1)}
-''')
-nova=input(f'{C}[{G}+{C}] Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
-    if nova=='s' or nova=='sim':
-      clear()
-      main()
-    else:
-      print(f'\n{G}Somos uma comunidade.{C}\n')
-      exit()
-  except(AttributeError):
-    print(f'{R}CPF inexistente{C}' + "\n")
-    nova=input(f'{C}[{G}+{C}] Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
-    if nova=='s' or nova=='sim':
-      clear()
-      main()
-    else:
-            print(f' {vm}[!] valor invalido \n digite apenas numeros \n {f}ex: {ng}01001000 {f}')  
 def cep():    
     n1 = str(input(f'{vm}--={f}{az}[CONSULTA CEP]{f}\n\n- {az}[{f}{lz}1{f}{az}]{f} {ng}postmon{f}\n- {az}[{f}{lz}2{f}{az}]{f} {ng}viacep{f}\n- {az}[{f}{lz}3{f}{az}]{f} {ng}apicep{f}  \n- {am}+=>{f} '))
     if n1=='1' or n1=='01':
@@ -149,10 +87,9 @@ def menu():
 {vm}--=== >>{f} [  {vd} CONSULTA-V1 {f} ]  
     	 	       
 - {az}[{f}{lz}01{f}{az}]{f} {vd}CONSULTAR IP {f}
-- {az}[{f}{lz}02{f}{az}]{f} {vd}CONSULTAR CPF {f}
-- {az}[{f}{lz}03{f}{az}]{f} {vd}CONSULTAR CEP {f}
-- {az}[{f}{lz}04{f}{az}]{f} {vd}CONSULTAR CNPJ {f}
-- {az}[{f}{lz}05{f}{az}]{f} {vd}SAIR{f}
+- {az}[{f}{lz}02{f}{az}]{f} {vd}CONSULTAR CEP {f}
+- {az}[{f}{lz}03{f}{az}]{f} {vd}CONSULTAR CNPJ {f}
+- {az}[{f}{lz}04{f}{az}]{f} {vd}SAIR{f}
     """)
 try:
     menu()
@@ -166,11 +103,9 @@ try:
         os.system('clear');ban();ip()
     elif inpu=='2' or inpu=='02':
         os.system('clear');ban();cep()
-         elif inpu=='3' or inpu=='03':
-        os.system('clear');ban();cpf()
-    elif inpu=='3' or inpu=='04':
+    elif inpu=='3' or inpu=='03':
         os.system('clear');ban();cnpj()
-    elif inpu=='4' or inpu=='05':
+    elif inpu=='4' or inpu=='04':
         exit()
     else:
         print(f'{vm}- [!] valor invalido !! {f}');exit()                                                                                          
