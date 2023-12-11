@@ -87,9 +87,10 @@ def menu():
 {vm}--=== >>{f} [  {vd} CONSULTA-V1 {f} ]  
     	 	       
 - {az}[{f}{lz}01{f}{az}]{f} {vd}CONSULTAR IP {f}
-- {az}[{f}{lz}02{f}{az}]{f}{vd} CONSULTAR CEP {f}
-- {az}[{f}{lz}03{f}{az}]{f} {vd}CONSULTAR CNPJ {f}
-- {az}[{f}{lz}04{f}{az}]{f} {vd}SAIR{f}
+- {az}[{f}{lz}02{f}{az}]{f} {vd}CONSULTAR CPF {f}
+- {az}[{f}{lz}03{f}{az}]{f} {vd}CONSULTAR CEP {f}
+- {az}[{f}{lz}04{f}{az}]{f} {vd}CONSULTAR CNPJ {f}
+- {az}[{f}{lz}05{f}{az}]{f} {vd}SAIR{f}
     """)
 try:
     menu()
@@ -103,9 +104,11 @@ try:
         os.system('clear');ban();ip()
     elif inpu=='2' or inpu=='02':
         os.system('clear');ban();cep()
-    elif inpu=='3' or inpu=='03':
+         elif inpu=='3' or inpu=='03':
+        os.system('clear');ban();cpf.main()
+    elif inpu=='3' or inpu=='04':
         os.system('clear');ban();cnpj()
-    elif inpu=='4' or inpu=='04':
+    elif inpu=='4' or inpu=='05':
         exit()
     else:
         print(f'{vm}- [!] valor invalido !! {f}');exit()                                                                                          
