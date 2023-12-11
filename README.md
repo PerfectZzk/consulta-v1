@@ -16,7 +16,7 @@ obs: o script não retornar dados pessoais ainda!
 
 > apt install git
 
-> git clone https://github.com/T3rMuX0/consulta-v3.git
+> git clone https://github.com/PerfectZzk/consulta-v1.git
 
 > cd consulta-v1
 
