@@ -1,10 +1,10 @@
-# consulta-v3
-![banner](https://github.com/T3rMuX0/consulta-v3/blob/master/20200906_113356.png)
+# consulta-v1
+![banner](https://github.com/PerfectZzk/consulta-v1/blob/main/png.webp)
 
 ferramenta onsint criado com apis públicas para obter dados de ips cnpj cep 
-obs: o script não retornar dados pessoais q possa compremeter auguem
+obs: o script não retornar dados pessoais ainda!
 
-> INSTALAÇÃO NO Linux
+> INSTALAÇÃO NO LINUX
 
 > apt-get update
 
@@ -18,13 +18,13 @@ obs: o script não retornar dados pessoais q possa compremeter auguem
 
 > git clone https://github.com/T3rMuX0/consulta-v3.git
 
-> cd consulta-v3
+> cd consulta-v1
 
 > pip install -r requirements.txt
 
-> python3 consultav3.py
+> python3 consultav1.py
 
 
 
-em breve o script recebera melhorias e novas fontes como consulta 
-de telefone dominios nome rede socialis .
+em breve o script recebera melhorias e novas fontes como consultas
+de telefone.
