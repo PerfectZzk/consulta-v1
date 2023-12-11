@@ -105,7 +105,7 @@ try:
     elif inpu=='2' or inpu=='02':
         os.system('clear');ban();cep()
          elif inpu=='3' or inpu=='03':
-        os.system('clear');ban();cpf.main()
+        os.system('clear');ban();cpf()
     elif inpu=='3' or inpu=='04':
         os.system('clear');ban();cnpj()
     elif inpu=='4' or inpu=='05':
