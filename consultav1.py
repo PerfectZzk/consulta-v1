@@ -35,51 +35,23 @@ def ip():
         br3='\n{}[+] CONSULTA REALIZADA PELO SCRIPT DE CONSULTA-V1 \n[+] by: D.security{}\n{}-=[ip_address]:{}\n-=[country]:{}\n-=[country code]:{}\n-=[continent]:{}\n-=[continente codigo]:{}\n-=[city]:{}\n-=[condado]:{}\n-=[região]:{}\n-=[código da região]:{}\n-=[fuso horário]:{}\n-=[proprietário]:{}\n-=[longitude]:{}\n-=[latitude]:{}\n-=[moeda]:{}\n-=[línguas]:{}\n{}'.format(ng,f,vd,req3['ip_address'],req3['country'],req3['country_code'],req3['continent'],req3['continent_code'],req3['city'],req3['county'],req3['region'],req3['region_code'],req3['timezone'],req3['owner'],req3['longitude'],req3['latitude'],req3['currency'],req3['languages'],f)
         print(br3)
 def cpf():
-    import requests, os, time, base64, json, re
-import platform
-
-def clear():
-   if platform.system() == "Windows":
-      os.system("cls")
-   elif platform.system() == "Linux":
-      os.system("clear")
-   else:
-       os.system("clear")
-
-R='\033[1;31m'; B='\033[1;34m'; C='\033[1;37m'; Y='\033[1;33m'; G='\033[1;32m'; RT='\033[;0m'
-
-code_info = C + '[' + Y + 'i' + C + '] '
-code_details = C + '[' + G + '*' + C + '] '
-code_result = C + '[' + G + '+' + C + '] '
-code_error = C + '[' + R + '!' + C + '] '
-
-a='aHR0cDovL3d3dy5qdXZlbnR1ZGV3ZWIubXRlLmdvdi5ici9wbnBlcGVzcXVpc2FzLmFzcA=='
-a=a.encode('ascii')
-a=base64.b64decode(a)
-a=a.decode('ascii')
-
-def main():
-  clear()
   print("\n" + code_info + "CPF.")
   print(f'''
 {C}[{G}i{C}] Formas de operação:
 
 [{G}1{C}] Consultar CPF.
-[{G}2{C}] Gerar CPF e consultar.
-[{G}3{C}] Voltar.
-[{G}4{C}] {R}Sair.{C}
+[{G}2{C}] Voltar.
+[{G}3{C}] {R}Sair.{C}
 ''')
 tool=input(f'{C}[{G}+{C}] Selecione a forma de operação:{B} ')
   if tool=='1':
     cpf=input(f'{C}[{G}*{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
     consultar(cpf)
   elif tool=='2':
-    gerarcpf()
-  elif tool=='3':
     clear()
-    import consulta
-    consulta.main()
-  elif tool=='4':
+    import consultav1
+    consultav1.main()
+  elif tool=='3':
     clear()
     print(f'\n{G}Somos uma comunidade.{C}\n')
     exit()
@@ -88,25 +60,6 @@ tool=input(f'{C}[{G}+{C}] Selecione a forma de operação:{B} ')
     print(f'{C}[{R}-{C}] Seleção inválida.')
     time.sleep(0.2)
     main()
-
-
-def gerarcpf():
-  print(f'{C}[{G}*{C}] Gerando CPF...')
-  time.sleep(1)
-  cpf=requests.request('GET','http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()
-  cpf2=cpf['data']['number_formatted']
-  cpf=cpf['data']['number']
-  print(f'{C}[{Y}i{C}] O CPF gerado foi: {B}'+cpf2)
-  time.sleep(1)
-  print(f'{C}[{G}*{C}] Consultando CPF gerado...')
-  nova=input("\n" + f'{C}[{G}+{C}] Deseja consultar?[{G}s{C}/{R}n{C}]: ').lower()
-  if nova=='s' or nova=='sim':
-      clear()
-      consultar(cpf)
-  else:
-      print(f'\n{G}Somos uma comunidade.{C}\n')
-      exit()
-  
 def consultar(cpf):
   try:
     h={
@@ -141,9 +94,7 @@ nova=input(f'{C}[{G}+{C}] Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: '
       clear()
       main()
     else:
-      clear()
-      print(f'\n{G}Somos uma comunidade.{C}\n')
-      exit()
+            print(f' {vm}[!] valor invalido \n digite apenas numeros \n {f}ex: {ng}01001000 {f}')  
 def cep():    
     n1 = str(input(f'{vm}--={f}{az}[CONSULTA CEP]{f}\n\n- {az}[{f}{lz}1{f}{az}]{f} {ng}postmon{f}\n- {az}[{f}{lz}2{f}{az}]{f} {ng}viacep{f}\n- {az}[{f}{lz}3{f}{az}]{f} {ng}apicep{f}  \n- {am}+=>{f} '))
     if n1=='1' or n1=='01':
