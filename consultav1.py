@@ -44,9 +44,10 @@ def cpf():
 [{G}3{C}] {R}Sair.{C}
 ''')
 tool=input(f'{C}[{G}+{C}] Selecione a forma de operação:{B} ')
-  if tool=='1':
+  if tool == '1':
     cpf=input(f'{C}[{G}*{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
     consultar(cpf)
+  elif tool=='2':
   elif tool=='2':
     clear()
     import consultav1
